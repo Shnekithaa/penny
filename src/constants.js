@@ -1,0 +1,31 @@
+export const COLORS = {
+  bg: "var(--bg)",
+  bgCard: "var(--surface-1)",
+  bgCardHover: "var(--surface-hover)",
+  border: "var(--border)",
+  borderHover: "var(--border-hover)",
+  emerald: "#14b8a6",
+  emeraldGlow: "rgba(20,184,166,0.15)",
+  rose: "#f43f5e",
+  roseGlow: "rgba(244,63,94,0.15)",
+  amber: "#f59e0b",
+  sky: "#38bdf8",
+  text: "var(--text)",
+  textMuted: "var(--text-muted)",
+  textDim: "var(--text-dim)",
+  slate800: "var(--surface-3)",
+  slate900: "var(--surface-2)",
+};
+
+export const CATEGORIES = [
+  { id: "food", label: "Food & Dining", icon: "🍜", color: "#f97316" },
+  { id: "transport", label: "Transport", icon: "🚗", color: "#38bdf8" },
+  { id: "shopping", label: "Shopping", icon: "🛍️", color: "#a78bfa" },
+  { id: "health", label: "Health", icon: "💊", color: "#34d399" },
+  { id: "entertainment", label: "Entertainment", icon: "🎮", color: "#fb7185" },
+  { id: "utilities", label: "Utilities", icon: "#️⃣", color: "#94a3b8" },
+  { id: "salary", label: "Salary", icon: "💼", color: "#14b8a6" },
+  { id: "freelance", label: "Freelance", icon: "💻", color: "#5eead4" },
+  { id: "investment", label: "Investment", icon: "📈", color: "#fbbf24" },
+  { id: "other", label: "Other", icon: "✨", color: "#c084fc" },
+];
