@@ -4,13 +4,23 @@ import { getFirestore } from "firebase/firestore";
 
 const cleanEnv = (value) => {
   if (typeof value !== "string") return value;
-  // Strip hidden CR/LF and surrounding whitespace from pasted env values.
-  return value.replace(/[\r\n]+/g, "").trim();
+  // Remove wrapping quotes, encoded CR/LF fragments, control chars, and all whitespace.
+  return value
+    .trim()
+    .replace(/^['\"]|['\"]$/g, "")
+    .replace(/%0d|%0a/gi, "")
+    .replace(/[\x00-\x1F\x7F]/g, "")
+    .replace(/\s+/g, "");
 };
+
+const cleanAuthDomain = (value) =>
+  cleanEnv(value)
+    ?.replace(/^https?:\/\//i, "")
+    .replace(/\/+$/, "");
 
 const firebaseConfig = {
   apiKey: cleanEnv(import.meta.env.VITE_FIREBASE_API_KEY),
-  authDomain: cleanEnv(import.meta.env.VITE_FIREBASE_AUTH_DOMAIN),
+  authDomain: cleanAuthDomain(import.meta.env.VITE_FIREBASE_AUTH_DOMAIN),
   projectId: cleanEnv(import.meta.env.VITE_FIREBASE_PROJECT_ID),
   storageBucket: cleanEnv(import.meta.env.VITE_FIREBASE_STORAGE_BUCKET),
   messagingSenderId: cleanEnv(import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID),
