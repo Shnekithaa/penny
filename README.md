@@ -4,7 +4,7 @@ Penny is a modern personal finance tracker built with React + Vite. It helps you
 
 ## Live app
 
-- Production: https://penny-ob9xh3wqx-shnekithaas-projects.vercel.app/
+- Production: [https://penny-ob9xh3wqx-shnekithaas-projects.vercel.app/](https://penny-rouge.vercel.app/)
 
 ## Features
 
