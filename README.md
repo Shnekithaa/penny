@@ -1,16 +1,92 @@
-# React + Vite
+# Penny
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Penny is a modern personal finance tracker built with React + Vite. It helps you track transactions, view analytics, and get AI-powered insights. It supports Google sign-in with Firebase Auth and includes a demo mode for quick exploration.
 
-Currently, two official plugins are available:
+## Live app
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Production: https://penny-ob9xh3wqx-shnekithaas-projects.vercel.app/
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Google authentication with Firebase
+- Demo mode without login
+- Add/delete income and expense transactions
+- Analytics dashboard with charts and key stats
+- AI assistant for finance guidance (Gemini)
+- Responsive UI for desktop and mobile
+- Light/dark theme toggle
 
-## Expanding the ESLint configuration
+## Tech stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- React 19
+- Vite 7
+- Firebase (Auth + Firestore)
+- Recharts
+
+## Project structure
+
+```text
+src/
+	components/      # Reusable UI blocks
+	hooks/           # App state hooks (transactions, analytics, toast)
+	pages/           # Main app screens
+	aiService.js     # Gemini integration
+	firebase.js      # Firebase initialization
+	services.js      # Auth and data services
+```
+
+## Local setup
+
+1. Install dependencies:
+
+```bash
+npm install
+```
+
+2. Create `.env` from `.env.example` and fill all Firebase values:
+
+```env
+VITE_FIREBASE_API_KEY=...
+VITE_FIREBASE_AUTH_DOMAIN=...
+VITE_FIREBASE_PROJECT_ID=...
+VITE_FIREBASE_STORAGE_BUCKET=...
+VITE_FIREBASE_MESSAGING_SENDER_ID=...
+VITE_FIREBASE_APP_ID=...
+VITE_GEMINI_API_KEY=...
+```
+
+3. Start development server:
+
+```bash
+npm run dev
+```
+
+4. Build for production:
+
+```bash
+npm run build
+```
+
+## Firebase auth setup notes
+
+- In Firebase console, add your deployed domain under Authentication -> Settings -> Authorized domains.
+- For this app, include:
+	- `localhost`
+	- `penny-ob9xh3wqx-shnekithaas-projects.vercel.app`
+- Keep env values clean: no trailing spaces or hidden new lines.
+
+## Deployment
+
+This app is deployed on Vercel.
+
+- Build command: `npm run build`
+- Output directory: `dist`
+
+After updating environment variables in Vercel, trigger a redeploy so the new values are picked up.
+
+## Scripts
+
+- `npm run dev` - Start local development server
+- `npm run build` - Build production assets
+- `npm run preview` - Preview production build locally
+- `npm run lint` - Run ESLint
